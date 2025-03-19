@@ -1,12 +1,14 @@
-import type { Metadata } from "next";
-import { rethinkSans } from "@/components/extension-ui/fonts";
-import Header from "@/components/extension-ui/header/header";
+import type { Metadata } from 'next';
 
-import "./globals.css";
+import { rethinkSans } from '@/components/extension-ui/fonts';
+
+import Header from '@/components/extension-ui/header/header';
+import Footer from '@/components/extension-ui/footer/footer';
+import './globals.css';
 
 export const metadata: Metadata = {
-  title: "Adventure Belarus",
-  description: "Empty",
+  title: 'Adventure Belarus',
+  description: 'Empty',
 };
 
 export default function RootLayout({
@@ -16,10 +18,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${rethinkSans.className} antialiased`}>
+      <body className={`${rethinkSans.className} h-[100vh] antialiased`}>
         <Header />
         <main>{children}</main>
-        {/* <Footer/> */}
+        <Footer />
       </body>
     </html>
   );
