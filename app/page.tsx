@@ -1,6 +1,5 @@
 'use client';
 
-import { openSans } from '@/components/extension-ui/fonts';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Armchair, Lightbulb, ShieldCheck } from 'lucide-react';
 import Image from 'next/image';
@@ -26,7 +25,7 @@ export default function Home() {
         </video>
         <div className="-z-9 absolute inset-0 bg-black bg-opacity-40" />
         <div className="-z-8 relative mx-auto max-w-[1440px] px-4 py-10">
-          <div className={`${openSans.className} flex flex-col gap-10 font-bold text-white`}>
+          <div className={`flex flex-col gap-10 font-bold text-white`}>
             <div className="text-[2em] md:text-[2.5em] min-[1186px]:text-[3em]">
               <h1>Туры по Беларуси — яркие эмоции, незабываемые открытия и вдохновляющие путешествия!</h1>
               {/* <p>
@@ -43,7 +42,7 @@ export default function Home() {
         </div> */}
       </section>
       <div className="">
-        <section className={`${openSans.className} -z-8 relative mx-auto max-w-[1440px] px-4 py-10`}>
+        <section className={`-z-8 relative mx-auto max-w-[1440px] px-4 py-10`}>
           <div className="flex min-h-[600px] flex-col content-center items-center gap-16 min-[961px]:grid min-[961px]:grid-cols-2 min-[961px]:gap-32">
             <div className="flex max-w-[500px] flex-col gap-4 max-[960px]:order-2">
               <h1 className={`text-3xl font-bold`}>О нас</h1>
@@ -74,7 +73,7 @@ export default function Home() {
         </section>
       </div>
       <div className="bg-[#DDDDDD]">
-        <section className={`${openSans.className} -z-8 relative mx-auto max-w-[1440px] px-4 py-10`}>
+        <section className={`-z-8 relative mx-auto max-w-[1440px] px-4 py-10`}>
           <div className="flex min-h-[600px] flex-col gap-10">
             <h1 className="text-3xl font-bold">Почему стоит выбрать нас</h1>
             {/* animate-[appear_2s_ease-in-out_1] */}

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import { rethinkSans } from '@/components/extension-ui/fonts';
+import { openSans } from '@/components/extension-ui/fonts';
 
 import Header from '@/components/extension-ui/header/header';
 import Footer from '@/components/extension-ui/footer/footer';
@@ -18,9 +18,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${rethinkSans.className} antialiased`}>
+      <body className={`${openSans.className} antialiased`}>
         <Header />
-        <main className="flex-grow">{children}</main>
+        <main className="flex flex-grow flex-col">{children}</main>
         <Footer />
       </body>
     </html>
