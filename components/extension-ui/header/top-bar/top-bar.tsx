@@ -9,9 +9,14 @@ export default function TopBar() {
           <li className="after:mx-3 after:content-['|']">en</li>
           <li className="hidden items-center gap-1 after:mx-3 after:content-['|'] md:flex">
             <Mail size={20} />
-            adv.bel@gmail.com
+            <a
+              className="whitespace-nowrap hover:text-[#5898fc] active:text-[#4287f5]"
+              href="mailto:adv.bel@gmail.com"
+            >
+              adv.bel@gmail.com
+            </a>
           </li>
-          <li className="flex items-center gap-1 after:mx-3 md:after:content-['|']">
+          <li className="flex items-center gap-1 md:after:mx-3 md:after:content-['|']">
             <Phone size={20} />
             <a
               className="whitespace-nowrap hover:text-[#5898fc] active:text-[#4287f5]"
