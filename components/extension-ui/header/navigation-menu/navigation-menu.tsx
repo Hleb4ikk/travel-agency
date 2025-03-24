@@ -1,7 +1,7 @@
 import Logo from '../../logo/logo';
 import { Button } from '@/components/ui/button';
 import { Menu } from 'lucide-react';
-
+import Link from 'next/link';
 export default function NavigationMenu() {
   return (
     <div className="bg-[#04b2b1]">
@@ -9,10 +9,38 @@ export default function NavigationMenu() {
         <Logo className="mr-auto size-24 lg:size-28" />
         <nav className="mx-auto mr-auto hidden min-[924px]:flex">
           <ul className="flex gap-10">
-            <li>Туры</li>
-            <li>Экскурсии</li>
-            <li className="whitespace-nowrap">Интересные места</li>
-            <li>Контакты</li>
+            <li>
+              <Link
+                className="transition-colors hover:text-white active:text-[#dddddd]"
+                href="/tours"
+              >
+                Туры
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="transition-colors hover:text-white active:text-[#dddddd]"
+                href="/excursions"
+              >
+                Экскурсии
+              </Link>
+            </li>
+            <li className="whitespace-nowrap">
+              <Link
+                className="transition-colors hover:text-white active:text-[#dddddd]"
+                href="/interesting_places"
+              >
+                Интересные места
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="transition-colors hover:text-white active:text-[#dddddd]"
+                href="/contacts"
+              >
+                Контакты
+              </Link>
+            </li>
           </ul>
         </nav>
         <Button className="ml-auto whitespace-nowrap rounded-full border-[1px] border-black py-6 text-[0.9em] font-semibold hover:bg-black hover:text-white active:text-[#aaaaaa]">
