@@ -3,10 +3,8 @@ import { defineConfig } from 'drizzle-kit';
 export default defineConfig({
   out: './drizzle',
   schema: [
-    './db/UserCredentialsSchema.ts',
-    './db/UserDataSchema.ts',
-    './db/TourPublicDataSchema.ts',
-    './db/TourPrivateDataSchema.ts',
+    './db/tour-data-schema.ts',
+    './db/user-credentials-schema.ts',
   ],
   dialect: 'postgresql',
   dbCredentials: {
