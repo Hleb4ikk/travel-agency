@@ -1,7 +1,8 @@
 import Logo from '../../logo/logo';
 import { Button } from '@/components/ui/button';
-import { Menu } from 'lucide-react';
 import Link from 'next/link';
+import PullOutMenu from '@/components/extension-ui/header/pull-out-menu/pull-out-menu'
+
 export default function NavigationMenu() {
   return (
     <div className="bg-[#04b2b1]">
@@ -47,7 +48,7 @@ export default function NavigationMenu() {
           Выбрать <span className="inline-block min-[924px]:hidden lg:inline-block">тур</span>
         </Button>
         <div className="hidden max-[923px]:block">
-          <Menu className="size-6" />
+          <PullOutMenu/>
         </div>
       </div>
     </div>

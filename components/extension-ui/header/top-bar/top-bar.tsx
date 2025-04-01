@@ -1,6 +1,6 @@
 import { Mail, Phone, MapPin, CircleUser } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-
+import Link from 'next/link';
 export default function TopBar() {
   return (
     <div className="bg-black">
@@ -32,8 +32,10 @@ export default function TopBar() {
         </ul>
         <Button className="ml-auto flex items-center justify-center gap-1 text-[1em] shadow-none hover:text-[#5898fc] active:text-[#4287f5]">
           <CircleUser size={20} />
-          <span className="hidden whitespace-nowrap min-[786px]:block">Мой профиль</span>
-          <span className="block whitespace-nowrap min-[786px]:hidden">Профиль</span>
+          <Link href={'/profile'}>
+            <span className="hidden whitespace-nowrap min-[786px]:block">Мой профиль</span>
+            <span className="block whitespace-nowrap min-[786px]:hidden">Профиль</span>
+          </Link>
         </Button>
       </div>
     </div>
