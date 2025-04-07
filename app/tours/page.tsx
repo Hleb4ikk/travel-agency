@@ -1,136 +1,47 @@
-import { Input } from '@/components/ui/input';
-import { Card, CardDescription, CardContent, CardHeader, CardFooter, CardTitle } from '@/components/ui/card';
+'use client';
+
+import { Tour } from '@/components/extension-ui/tours-catalog/tour-card/tour-card';
+import { Suspense, useRef } from 'react';
+import TagBar from '@/components/extension-ui/tag-bar';
+import Search from '@/components/extension-ui/search';
+import ToursCatalog from '@/components/extension-ui/tours-catalog/tours-catalog';
+import TourCardSkeleton from '@/components/extension-ui/tours-catalog/tour-card/skeleton';
 export default function Tours() {
+  const tours = useRef<Array<Tour> | null>(null);
+
+  function formatNumberString(n: number) {
+    const mod10 = n % 10;
+    const mod100 = n % 100;
+
+    if (mod10 === 1 && mod100 !== 11) {
+      return `Найден ${n} тур`;
+    } else if (mod10 >= 2 && mod10 <= 4 && (mod100 < 10 || mod100 >= 20)) {
+      return `Найдено ${n} тура`;
+    } else {
+      return `Найдено ${n} туров`;
+    }
+  }
+
   return (
     <div>
       <div className="mx-auto flex max-w-[1440px] flex-col gap-4 p-4">
         <section>
           <h1 className="text-4xl font-bold">Поиск туров по Беларуси</h1>
         </section>
-        <section className="flex flex-wrap items-center gap-2">
-          <div className="rounded-full bg-[#dddddd] px-2 py-1">Гродно</div>
-          <div className="rounded-full bg-[#dddddd] px-2 py-1">Новогрудок</div>
-          <div className="rounded-full bg-[#dddddd] px-2 py-1">Минск</div>
-          <div className="rounded-full bg-[#dddddd] px-2 py-1">Могилёв</div>
-          <div className="rounded-full bg-[#dddddd] px-2 py-1">Витебск</div>
-          <div className="rounded-full bg-[#dddddd] px-2 py-1">Гомель</div>
-          <div className="rounded-full bg-[#dddddd] px-2 py-1">Брест</div>
-          <div className="rounded-full bg-[#dddddd] px-2 py-1">Мир</div>
-          <div className="rounded-full bg-[#dddddd] px-2 py-1">Слуцк</div>
-          <div className="rounded-full bg-[#dddddd] px-2 py-1">Боровляны</div>
-          <div className="rounded-full bg-[#dddddd] px-2 py-1">Большая Берестовица</div>
-          <div className="rounded-full bg-[#dddddd] px-2 py-1">Малая Берестовица</div>
-          <div className="rounded-full bg-[#dddddd] px-2 py-1">Барановичи</div>
-          <div className="rounded-full bg-[#dddddd] px-2 py-1">Держинск</div>
-          <div className="rounded-full bg-[#dddddd] px-2 py-1">Туров</div>
-        </section>
+        <TagBar />
         <section className="flex items-center">
-          <Input className="w-[300px] border-2 border-[#bbbbbb] shadow-sm shadow-[#bbbbbb] focus-visible:ring-2 focus-visible:ring-offset-0" />
+          <Search />
           <div className="flex flex-grow justify-end">
-            <p>Найдено 24 тура</p>
+            {tours && tours.current != null ? (
+              <p>{formatNumberString(tours.current.length)}</p>
+            ) : (
+              <p>Туры не найдены</p>
+            )}
           </div>
         </section>
-        <section className="flex flex-wrap items-center gap-6">
-          <Card className="flex-grow border-[#bbbbbb] shadow-[#bbbbbb]">
-            <CardHeader>
-              <CardTitle>Title with Image</CardTitle>
-              <CardDescription>Description</CardDescription>
-            </CardHeader>
-
-            <CardContent>Content</CardContent>
-            <CardFooter>Tags maybe</CardFooter>
-          </Card>
-          <Card className="flex-grow border-[#bbbbbb] shadow-[#bbbbbb]">
-            <CardHeader>
-              <CardTitle>Title with Image</CardTitle>
-              <CardDescription>Description</CardDescription>
-            </CardHeader>
-
-            <CardContent>Content</CardContent>
-            <CardFooter>Tags maybe</CardFooter>
-          </Card>
-          <Card className="flex-grow border-[#bbbbbb] shadow-[#bbbbbb]">
-            <CardHeader>
-              <CardTitle>Title with Image</CardTitle>
-              <CardDescription>Description</CardDescription>
-            </CardHeader>
-
-            <CardContent>Content</CardContent>
-            <CardFooter>Tags maybe</CardFooter>
-          </Card>
-          <Card className="flex-grow border-[#bbbbbb] shadow-[#bbbbbb]">
-            <CardHeader>
-              <CardTitle>Title with Image</CardTitle>
-              <CardDescription>Description</CardDescription>
-            </CardHeader>
-
-            <CardContent>Content</CardContent>
-            <CardFooter>Tags maybe</CardFooter>
-          </Card>
-          <Card className="flex-grow border-[#bbbbbb] shadow-[#bbbbbb]">
-            <CardHeader>
-              <CardTitle>Title with Image</CardTitle>
-              <CardDescription>Description</CardDescription>
-            </CardHeader>
-
-            <CardContent>Content</CardContent>
-            <CardFooter>Tags maybe</CardFooter>
-          </Card>
-          <Card className="flex-grow border-[#bbbbbb] shadow-[#bbbbbb]">
-            <CardHeader>
-              <CardTitle>Title with Image</CardTitle>
-              <CardDescription>Description</CardDescription>
-            </CardHeader>
-
-            <CardContent>Content</CardContent>
-            <CardFooter>Tags maybe</CardFooter>
-          </Card>
-          <Card className="flex-grow border-[#bbbbbb] shadow-[#bbbbbb]">
-            <CardHeader>
-              <CardTitle>Title with Image</CardTitle>
-              <CardDescription>Description</CardDescription>
-            </CardHeader>
-
-            <CardContent>Content</CardContent>
-            <CardFooter>Tags maybe</CardFooter>
-          </Card>
-          <Card className="flex-grow border-[#bbbbbb] shadow-[#bbbbbb]">
-            <CardHeader>
-              <CardTitle>Title with Image</CardTitle>
-              <CardDescription>Description</CardDescription>
-            </CardHeader>
-
-            <CardContent>Content</CardContent>
-            <CardFooter>Tags maybe</CardFooter>
-          </Card>
-          <Card className="flex-grow border-[#bbbbbb] shadow-[#bbbbbb]">
-            <CardHeader>
-              <CardTitle>Title with Image</CardTitle>
-              <CardDescription>Description</CardDescription>
-            </CardHeader>
-
-            <CardContent>Content</CardContent>
-            <CardFooter>Tags maybe</CardFooter>
-          </Card>
-          <Card className="flex-grow border-[#bbbbbb] shadow-[#bbbbbb]">
-            <CardHeader>
-              <CardTitle>Title with Image</CardTitle>
-              <CardDescription>Description</CardDescription>
-            </CardHeader>
-
-            <CardContent>Content</CardContent>
-            <CardFooter>Tags maybe</CardFooter>
-          </Card>
-          <Card className="flex-grow border-[#bbbbbb] shadow-[#bbbbbb]">
-            <CardHeader>
-              <CardTitle>Title with Image</CardTitle>
-              <CardDescription>Description</CardDescription>
-            </CardHeader>
-
-            <CardContent>Content</CardContent>
-            <CardFooter>Tags maybe</CardFooter>
-          </Card>
-        </section>
+        <Suspense fallback={<TourCardSkeleton />}>
+          <ToursCatalog ref={tours} />
+        </Suspense>
       </div>
     </div>
   );
