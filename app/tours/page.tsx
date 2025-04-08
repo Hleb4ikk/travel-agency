@@ -1,13 +1,13 @@
 'use client';
 
 import { Tour } from '@/components/extension-ui/tours-catalog/tour-card/tour-card';
-import { Suspense, useRef } from 'react';
+import { useState } from 'react';
 import TagBar from '@/components/extension-ui/tag-bar';
 import Search from '@/components/extension-ui/search';
 import ToursCatalog from '@/components/extension-ui/tours-catalog/tours-catalog';
-import TourCardSkeleton from '@/components/extension-ui/tours-catalog/tour-card/skeleton';
+
 export default function Tours() {
-  const tours = useRef<Array<Tour> | null>(null);
+  const [tours, setTours] = useState<Array<Tour> | null>(null);
 
   function formatNumberString(n: number) {
     const mod10 = n % 10;
@@ -32,16 +32,10 @@ export default function Tours() {
         <section className="flex items-center">
           <Search />
           <div className="flex flex-grow justify-end">
-            {tours && tours.current != null ? (
-              <p>{formatNumberString(tours.current.length)}</p>
-            ) : (
-              <p>Туры не найдены</p>
-            )}
+            {tours && tours?.length != 0 ? <p>{formatNumberString(tours.length)}</p> : <p>Туры не найдены</p>}
           </div>
         </section>
-        <Suspense fallback={<TourCardSkeleton />}>
-          <ToursCatalog ref={tours} />
-        </Suspense>
+        <ToursCatalog callback={setTours} />
       </div>
     </div>
   );
