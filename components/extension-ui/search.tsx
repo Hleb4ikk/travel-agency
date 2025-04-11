@@ -12,7 +12,22 @@ export default function Search() {
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    const currentInput = inputRef.current; // Save the current ref value
+    const params = new URLSearchParams(searchParams);
+    params.append('tags', 'Grodno');
+  }, []);
+
+  useEffect(() => {
+    const query = searchParams.get('query');
+
+    if (query !== null) {
+      if (inputRef.current) {
+        inputRef.current.value = query;
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    const currentInput = inputRef.current;
 
     async function handleInput() {
       const params = new URLSearchParams(searchParams);
@@ -33,14 +48,14 @@ export default function Search() {
 
     currentInput?.addEventListener('input', handleInput);
     return () => {
-      currentInput?.removeEventListener('input', handleInput); // Cleanup using the saved ref value
+      currentInput?.removeEventListener('input', handleInput);
     };
   }, [pathname, router, searchParams, timerId]);
 
   return (
     <Input
       ref={inputRef}
-      className="w-[300px] border-2 border-[#bbbbbb] shadow-sm shadow-[#bbbbbb] focus-visible:ring-2 focus-visible:ring-offset-0"
+      className="max-w-[300px] border-2 border-[#bbbbbb] shadow-sm shadow-[#bbbbbb] focus-visible:ring-2 focus-visible:ring-offset-0"
     />
   );
 }

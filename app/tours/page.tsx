@@ -2,7 +2,7 @@
 
 import { Tour } from '@/components/extension-ui/tours-catalog/tour-card/tour-card';
 import { useState } from 'react';
-import TagBar from '@/components/extension-ui/tag-bar';
+import TagBar from '@/components/extension-ui/tag-bar/tag-bar';
 import Search from '@/components/extension-ui/search';
 import ToursCatalog from '@/components/extension-ui/tours-catalog/tours-catalog';
 
@@ -29,9 +29,9 @@ export default function Tours() {
           <h1 className="text-4xl font-bold">Поиск туров по Беларуси</h1>
         </section>
         <TagBar />
-        <section className="flex items-center">
+        <section className="flex items-center gap-4">
           <Search />
-          <div className="flex flex-grow justify-end">
+          <div className="flex flex-grow justify-end whitespace-nowrap">
             {tours && tours?.length != 0 ? <p>{formatNumberString(tours.length)}</p> : <p>Туры не найдены</p>}
           </div>
         </section>
