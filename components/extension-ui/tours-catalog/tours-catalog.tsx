@@ -56,6 +56,7 @@ export default function ToursCatalog({ callback }: { callback: (arr: Array<Tour>
         filteredTours.map((tour) => (
           <TourCard
             key={tour.id}
+            id={tour.id}
             title={tour.title}
             description={tour.description}
           />

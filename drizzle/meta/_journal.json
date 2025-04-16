@@ -8,6 +8,20 @@
       "when": 1743599390911,
       "tag": "0000_legal_captain_flint",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1744722543586,
+      "tag": "0001_jittery_guardian",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1744726588404,
+      "tag": "0002_steep_wasp",
+      "breakpoints": true
     }
   ]
 }

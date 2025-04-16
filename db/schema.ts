@@ -13,6 +13,11 @@ export const tours = pgTable('tours', {
   description: varchar('description', { length: 512 }).notNull(),
 });
 
+export const tags = pgTable('tags', {
+  id: serial('id').primaryKey(),
+  tag: varchar('tag', { length: 128 }).unique().notNull(),
+});
+
 export const userTours = pgTable('user_tours', {
   id: serial('id').primaryKey(),
   userId: uuid('user_id').references(() => users.id),
@@ -27,5 +32,22 @@ export const userProductsRelations = relations(userTours, ({ one }) => ({
   tour: one(tours, {
     fields: [userTours.tourId],
     references: [tours.id],
+  }),
+}));
+
+export const tourTags = pgTable('tour_tags', {
+  id: serial('id').primaryKey(),
+  tourId: uuid('tour_id').references(() => tours.id),
+  tagId: serial('tag_id').references(() => tags.id),
+});
+
+export const tourTagsRelations = relations(tourTags, ({ one }) => ({
+  tour: one(tours, {
+    fields: [tourTags.tourId],
+    references: [tours.id],
+  }),
+  tag: one(tags, {
+    fields: [tourTags.tagId],
+    references: [tags.id],
   }),
 }));

@@ -12,11 +12,6 @@ export default function Search() {
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    const params = new URLSearchParams(searchParams);
-    params.append('tags', 'Grodno');
-  }, []);
-
-  useEffect(() => {
     const query = searchParams.get('query');
 
     if (query !== null) {

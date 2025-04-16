@@ -5,13 +5,10 @@ import { cn } from '@/lib/utils';
 import { useState } from 'react';
 
 export default function TagButton({ className, children, ...props }: ButtonProps) {
-  const [isClicked, setIsClicked] = useState(false);
-
   return (
     <Button
       {...props}
-      className={cn(className, `${isClicked ? 'bg-[#aaaaaa]' : 'bg-[#dddddd]'} rounded-full px-2 py-1`)}
-      onClick={() => setIsClicked(!isClicked)}
+      className={cn('rounded-full bg-[#dddddd] px-2 py-1 transition-colors', className)}
     >
       {children}
     </Button>
